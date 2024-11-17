@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html class="" lang="en">
+<head>
+    <!-- Load sentry as early as possible -->
+            <script nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" src="https://js.sentry-cdn.com/1ad5e9767ad243d396a93ef40135e743.min.js" crossorigin="anonymous" data-lazy="no"></script>
+
+    <script nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" type="module">
+        Sentry.onLoad(function() {
+            Sentry.init({
+                dsn: "https://1ad5e9767ad243d396a93ef40135e743:0f66eac85d88443baa349f5bc2497f28@sentry.io/271015",
+                release: "bfdea40a72a73cd25b0b8b80a2149fa0912e4aff",
+                environment: "edu",
+                whitelistUrls: [
+                    /https?:\/\/open\.kattis\.com/                 ],
+                ignoreErrors: [
+                    "Non-Error exception captured",                     "Non-Error promise rejection captured",                    'ResizeObserver loop limit exceeded',                    'Can\'t find variable: zaloJSV2'                ],
+                denyUrls: ['/static\.cloudflareinsights\.com/'],                 autoSessionTracking: false,
+                integrations: [                    new Sentry.BrowserTracing(),
+                ],
+                tracesSampleRate: 0,
+                profilesSampleRate: 1.0,
+                replaysSessionSampleRate: 0,                 replaysOnErrorSampleRate: 0,                 tracePropagationTargets: ["localhost", /https?:\/\/open\.kattis\.com/],             });
+                        Sentry.setUser({
+                username: "torres-torres-mejia",
+                                email: "inigo.torresmejia@mail.mcgill.ca",
+                            })
+                        Sentry.configureScope((scope) => scope.setTransactionName("problems_view"));         })
+    </script>
+
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>10 Kinds of People &ndash; Kattis, Kattis</title>
+
+    <!-- Jquery and Jquery-ui -->
+    <link href="/assets/45ee1c6d5829549ca51118259436e200/jquery-ui-dist/jquery-ui.theme.min.css" rel="stylesheet">
+    <script nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" src="/assets/45ee1c6d5829549ca51118259436e200/jquery/dist/jquery.min.js"></script>
+    <script nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" src="/assets/45ee1c6d5829549ca51118259436e200/jquery-ui-dist/jquery-ui.min.js"></script>
+
+    <!-- Timezone Cookie -->
+    <script nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" type="module" src="/js/3733230c165478d407a7cfc4cc335595/modules/timezone.js"></script>
+
+    <!-- Fonts/Icons -->
+    <link href="/assets/45ee1c6d5829549ca51118259436e200/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+            <link href="/assets/45ee1c6d5829549ca51118259436e200/@fontsource/merriweather/300.css" rel="stylesheet">
+        <link href="/assets/45ee1c6d5829549ca51118259436e200/@fontsource/merriweather/300-italic.css" rel="stylesheet">
+            <link href="/assets/45ee1c6d5829549ca51118259436e200/@fontsource/merriweather/400.css" rel="stylesheet">
+        <link href="/assets/45ee1c6d5829549ca51118259436e200/@fontsource/merriweather/400-italic.css" rel="stylesheet">
+            <link href="/assets/45ee1c6d5829549ca51118259436e200/@fontsource/merriweather/700.css" rel="stylesheet">
+        <link href="/assets/45ee1c6d5829549ca51118259436e200/@fontsource/merriweather/700-italic.css" rel="stylesheet">
+                <link href="/assets/45ee1c6d5829549ca51118259436e200/@fontsource/ubuntu/300.css" rel="stylesheet">
+        <link href="/assets/45ee1c6d5829549ca51118259436e200/@fontsource/ubuntu/300-italic.css" rel="stylesheet">
+            <link href="/assets/45ee1c6d5829549ca51118259436e200/@fontsource/ubuntu/400.css" rel="stylesheet">
+        <link href="/assets/45ee1c6d5829549ca51118259436e200/@fontsource/ubuntu/400-italic.css" rel="stylesheet">
+            <link href="/assets/45ee1c6d5829549ca51118259436e200/@fontsource/ubuntu/500.css" rel="stylesheet">
+        <link href="/assets/45ee1c6d5829549ca51118259436e200/@fontsource/ubuntu/500-italic.css" rel="stylesheet">
+            <link href="/assets/45ee1c6d5829549ca51118259436e200/@fontsource/ubuntu/700.css" rel="stylesheet">
+        <link href="/assets/45ee1c6d5829549ca51118259436e200/@fontsource/ubuntu/700-italic.css" rel="stylesheet">
+    
+    <!-- DateRangePicker CSS -->
+    <link href="/assets/45ee1c6d5829549ca51118259436e200/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <!-- Editable and Select2 -->
+    <link href="/assets/45ee1c6d5829549ca51118259436e200/select2/dist/css/select2.css" rel="stylesheet">
+
+            <link rel="apple-touch-icon-precomposed" sizes="57x57"   href="/images/favicon/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72"   href="/images/favicon/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon-precomposed" sizes="60x60"   href="/images/favicon/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon-precomposed" sizes="76x76"   href="/images/favicon/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/apple-touch-icon-152x152.png">
+        <link rel="icon" type="image/png" href="/images/favicon/favicon-196x196.png" sizes="196x196">
+        <link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png"   sizes="96x96">
+        <link rel="icon" type="image/png" href="/images/favicon/favicon-32x32.png"   sizes="32x32">
+        <link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png"   sizes="16x16">
+        <link rel="icon" type="image/png" href="/images/favicon/favicon-128.png"     sizes="128x128">
+        <link rel="shortcut icon"         href="/images/favicon/favicon.ico">
+        <meta name="application-name"                content="Kattis, Kattis">
+        <meta name="msapplication-TileColor"         content="#FFFFFF">
+        <meta name="msapplication-TileImage"         content="/images/favicon/mstile-144x144.png">
+        <meta name="msapplication-square70x70logo"   content="/images/favicon/mstile-70x70.png">
+        <meta name="msapplication-square150x150logo" content="/images/favicon/mstile-150x150.png">
+        <meta name="msapplication-wide310x150logo"   content="/images/favicon/mstile-310x150.png">
+        <meta name="msapplication-square310x310logo" content="/images/favicon/mstile-310x310.png">
+    
+    <!-- Own CSS -->
+    <link rel="stylesheet" href="/css/2d0141792582a6acf5ac712a5477447d/style.css">
+    <style type="text/css">           .logo {
+         background-color: ;
+     }
+          :root {
+                      --branding-border: linear-gradient(rgb(240,176,52), rgb(240,176,52));
+              }
+
+          div.page-content.clearfix.above-everything.alert.alert-danger { color: #31708f; background: #d9edf7; border-color: #bce8f1; }
+div.page-content.clearfix.above-everything.alert.alert-danger div.main-content { padding-bottom: 0; }
+
+         </style>
+
+    <script nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" type="text/javascript">
+        window.page_loaded_at = new Date();
+        jQuery.noConflict();
+    </script>
+
+    
+    <meta name="robots" content="noindex">
+    <script nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" src="/js/3733230c165478d407a7cfc4cc335595/non-es6/mathjax_conf.js" defer></script>
+<script nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" src="/assets/45ee1c6d5829549ca51118259436e200/mathjax/es5/tex-mml-chtml.js" defer id="MathJax-script"></script>
+    <script nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" defer src="/assets/45ee1c6d5829549ca51118259436e200/ace-builds/src-min-noconflict/ace.js"></script>
+
+</head>
+
+<body class=" l-body_grid"  >
+
+
+
+
+
+<header class="l-page_header">
+    <div class="page_header-arrow_expand_collapse">
+        <i class="page_header-arrow_expand_collapse-arrow"></i>
+    </div>
+    <div class="page_header-wrapper">
+        <div class="logo-container">
+            <a class="logo-link" href="/" title="Kattis">
+                <img class="logo" src="/images/site-logo?v=0a3f6018aacf449381741e45cf0ff6ba" alt="Kattis logo" />
+            </a>
+            <h4 class="logo-container-text">Kattis</h4>
+            <button class="menu_mobile_link" >
+                <i class="fas fa-bars menu_mobile_link_icon"></i>
+            </button>
+            <script nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" type="module" src="/js/3733230c165478d407a7cfc4cc335595/pages/master/nav.js"></script>
+        </div>
+        <div class="branding_border"></div>
+        <div class="page_header-content">
+            <nav>
+                <ul class="main_menu">
+                                                                    <li>
+                            <a  href="/problems" class="main_menu-item main_menu-item_link  is-main_menu-item-active" title="Problems">
+                                                                    <i class="fas fa-puzzle-piece main_menu-item_icon"></i>
+                                                                <span class="main_menu-item_name ">Problems</span>
+                                                            </a>
+                        </li>
+                                                                    <li>
+                            <a  href="/contests" class="main_menu-item main_menu-item_link  " title="Contests">
+                                                                    <i class="fas fa-award main_menu-item_icon"></i>
+                                                                <span class="main_menu-item_name ">Contests</span>
+                                                            </a>
+                        </li>
+                                                                    <li>
+                            <a  href="/challenge" class="main_menu-item main_menu-item_link  " title="Challenge">
+                                                                    <i class="fas fa-star main_menu-item_icon"></i>
+                                                                <span class="main_menu-item_name beta_label">Challenge</span>
+                                                            </a>
+                        </li>
+                                                                    <li>
+                            <a  href="/ranklist" class="main_menu-item main_menu-item_link  " title="Ranklists">
+                                                                    <i class="fas fa-trophy main_menu-item_icon"></i>
+                                                                <span class="main_menu-item_name ">Ranklists</span>
+                                                            </a>
+                        </li>
+                                                                    <li>
+                            <a  href="/jobs" class="main_menu-item main_menu-item_link  " title="Jobs">
+                                                                    <i class="fas fa-suitcase main_menu-item_icon"></i>
+                                                                <span class="main_menu-item_name ">Jobs</span>
+                                                            </a>
+                        </li>
+                                                                    <li>
+                            <a  href="/languages" class="main_menu-item main_menu-item_link  " title="Languages">
+                                                                    <i class="fas fa-code main_menu-item_icon"></i>
+                                                                <span class="main_menu-item_name ">Languages</span>
+                                                            </a>
+                        </li>
+                                                                    <li>
+                            <a  href="/info" class="main_menu-item main_menu-item_link  " title="Info">
+                                                                    <i class="fas fa-info main_menu-item_icon"></i>
+                                                                <span class="main_menu-item_name ">Info</span>
+                                                            </a>
+                        </li>
+                                                                    <li>
+                            <a  href="https://support.kattis.com" class="main_menu-item main_menu-item_link  " title="Help">
+                                                                    <i class="fas fa-question main_menu-item_icon"></i>
+                                                                <span class="main_menu-item_name ">Help</span>
+                                                            </a>
+                        </li>
+                                    </ul>
+            </nav>
+                            <div class="header_item_margin search-lower">
+                    <label for="search_input" class="search-label search-label-right">Search</label>
+                    <form id="search_form" method="GET" action="/search" class="search">
+                                                    <img src="/images/site/header/logo-empty.png?0bb770=" alt="Kattis Cat" class="search-mascot" />
+                                                <input id="search_input" type="search" name="q" class="search-input" placeholder="Search Kattis" />
+                        <i id="search_submit" class="fas fa-search search-icon"></i>
+                    </form>
+                </div>
+                    </div>
+    </div>
+</header>
+
+<div class="l-main_area">
+    
+
+    
+    <main class="flex flex-col grow content_padding">
+        
+
+
+
+<div class="top_bar ">
+    <script nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" type="module" src="/js/3733230c165478d407a7cfc4cc335595/pages/master/top_bar.js"></script>
+    <div class="branding_border"></div>
+            <div class="top_bar-content-wrapper">
+            <div class="top_bar-section top_bar-section-large">
+                <div class="breadcrumb top_bar-item">
+                                                                        <a href="/problems" class="breadcrumb-link">Problems</a><span class="breadcrumb-divider">/</span>
+                                                                                    <span class="breadcrumb-current">
+                                                    10 Kinds of People
+                                            </span>
+                </div>
+
+                            </div>
+
+            <div class="top_bar-section tooltip-right-container top_bar-section-small">
+
+                
+                
+
+                                                            <div class="top_bar-item top_bar-item-right top_bar-item-button top_bar-item-button-user">
+                            <div class="top_bar-button">
+
+                                <a class="whitespace-nowrap" href="/supporter">
+                                                                            Support Kattis                                                                    </a>
+
+                            </div>
+                        </div>
+                                        <div class="top_bar-item top_bar-item-right top_bar-item-button top_bar-item-button-user">
+                        <!-- Tooltip -->
+                        <div class="tooltip-container">
+                            <div class="top_bar-button whitespace-nowrap" data-openTooltipId="top_user_tooltip" data-tooltipType="right" data-tooltipUseBackground="true">Torres Torres Mejía<i class="fas fa-chevron-down top_bar-button-chevron_down"></i><i class="fas fa-chevron-up top_bar-button-chevron_up"></i></div>
+                            <div id="top_user_tooltip" class="tooltip">
+                                <span class="tooltip-arrow"></span>
+                                <div class="tooltip-content tooltip-menu tooltip-top_bar">
+                                    <i class="fas fa-times tooltip-close tooltip-top_bar-close"></i>
+                                    <a href="/users/torres-torres-mejia" class="image_info static_link"><div class="image_info-image-container"><div class="image_info-image-overlay image_info-image-overlay-strip" >TM</div><div class="image_info-image image_info-image-strip image_info-image-rounded image_info-image-icon "></div></div><div class="image_info-text-container"><span class="image_info-text-main image_info-text-main-user">Torres Torres Mejía</span><span class="image_info-text-sub"><ul class="image_info-list-sub"><li>Score: 124.8</li><li>Rank: 10389</li></ul></span></div></a>
+                                    <div class="tooltip-top_bar-item logout-container">
+                                        <a href="/logout" class="button button-basic button-block whitespace-nowrap">Log out<i class="fas fa-sign-out-alt button-icon-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+    
+    
+
+    </div>
+
+        
+
+<script nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" defer src="/assets/45ee1c6d5829549ca51118259436e200/ace-builds/src-min-noconflict/ace.js"></script>
+<script nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" type="module" src="/js/3733230c165478d407a7cfc4cc335595/modules/highlight.js"></script>
+<script nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" type="module" src="/js/3733230c165478d407a7cfc4cc335595/modules/mobile_tabs.js"></script>
+<script nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" type="module" src="/js/3733230c165478d407a7cfc4cc335595/modules/load_select.js"></script>
+<script nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" type="module" src="/js/3733230c165478d407a7cfc4cc335595/pages/problems/view.js"></script>
+<script nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" type="application/json" id="javascript-translations">
+    { "copy_msg": "Copied to clipboard!" }
+</script>
+
+<div class="l-book">
+    <div class="book-container">
+        <div id="bookmark" class="book-bookmark is-hidden">
+            <div class="book-bookmark-text" data-cy="instruction-bookmark">
+                View problem statement: <span class="book-bookmark-text-subtext">10 Kinds of People</span><i class="fas fa-chevron-left book-bookmark-text-icon"></i>
+            </div>
+        </div>
+        <div id="instructions-container" class="book-page-container grow book-page-fixed_width h-max-content">
+            <article class="book-page">
+                <div class="book-page-fixed_width">
+                    <div id="instructions-close" class="book-close"><i class="fas fa-chevron-left book-close-icon"></i>Hide</div>
+                    <h1 class="book-page-heading">10 Kinds of People</h1>
+                                                                
+  <div class="problembody">
+    <div style="width:30.00%" class="illustration">
+      <img src=
+      "/problems/10kindsofpeople/file/statement/en/img-0001.jpg"
+      alt=
+      "/problems/10kindsofpeople/file/statement/en/img-0001.jpg"
+      class="illustration">
+
+      <div class="description">
+        Image by <a href=
+        "https://www.flickr.com/photos/132889348@N07/20445410520">Christiaan
+        Colen</a>
+      </div>
+    </div>
+
+    <p>The world is made up of <span class=
+    "tex2jax_process">$10$</span> kinds of people, those who
+    understand binary and those who do not. These different kinds
+    of people do not always get along so well. Bob might ask for a
+    <span class="tex2jax_process">$10000$</span> ounce coffee
+    (meaning binary) and Alice might make misinterpret his request
+    as being in decimal and give him a <span class=
+    "tex2jax_process">$10011100010000$</span> ounce coffee
+    (binary). After Sue explains that this much coffee costs
+    <span class="tex2jax_process">$100$</span> dollars (decimal),
+    Bob might assume he only has to pay <span class=
+    "tex2jax_process">$4$</span> dollars (interpreting the price as
+    being in binary). In response to these differences that are
+    difficult to resolve, these two groups have divided the world
+    into two regions, the binary-friendly zones and the
+    decimal-friendly zones. They have even published a map like the
+    following to help people keep up with where the areas are (they
+    have used ones and zeros so nobody would have trouble reading
+    it).</p>
+
+    <center>
+      <tt>1111100000</tt><br>
+      <tt>1111000000</tt><br>
+      <tt>1110000011</tt><br>
+      <tt>0111100111</tt><br>
+      <tt>0011111111</tt>
+    </center>
+
+    <p>Users of binary have to stay in the zones marked with a
+    zero. Users of decimal have to stay in the zones marked with a
+    one. You have to figure out if it is possible for either type
+    of person to get between various locations of interest. People
+    can move north, south, east or west, but cannot move
+    diagonally.</p>
+
+    <h2>Input</h2>
+
+    <p>Input starts with a line containing two positive integers,
+    <span class="tex2jax_process">$1 \le r \le 1\, 000$</span> and
+    <span class="tex2jax_process">$1 \le c \le 1\, 000$</span>. The
+    next <span class="tex2jax_process">$r$</span> input lines give
+    the contents of the map, each line containing exactly
+    <span class="tex2jax_process">$c$</span> characters (which are
+    all chosen from <span class="tex2jax_process">$0$</span> or
+    <span class="tex2jax_process">$1$</span>).</p>
+
+    <p>The next line has an integer <span class=
+    "tex2jax_process">$0 \le n \le 1\, 000$</span>. The following
+    <span class="tex2jax_process">$n$</span> lines each contain one
+    query, given as four integers: <span class=
+    "tex2jax_process">$r_1,c_1$</span> and <span class=
+    "tex2jax_process">$r_2,c_2$</span>. These two pairs indicate
+    two locations on the map, and their limits are <span class=
+    "tex2jax_process">$1 \le r_1, r_2 \le r$</span> and
+    <span class="tex2jax_process">$1 \le c_1, c_2 \le
+    c$</span>.</p>
+
+    <h2>Output</h2>
+
+    <p>For each query, output <tt class="ttfamily">binary</tt> if a
+    binary user can start from location <span class=
+    "tex2jax_process">$r_1, c_1$</span> and move to location
+    <span class="tex2jax_process">$r_2, c_2$</span>. Output
+    <tt class="ttfamily">decimal</tt> if a decimal user can move
+    between the two locations. Otherwise, output <tt class=
+    "ttfamily">neither</tt>.</p>
+
+    <table class="sample" summary="sample data">
+      <tr>
+        <th>Sample Input 1</th>
+
+        <th>Sample Output 1</th>
+      </tr>
+
+      <tr>
+        <td>
+          <pre>
+1 4
+1100
+2
+1 1 1 4
+1 1 1 1
+</pre>
+        </td>
+
+        <td>
+          <pre>
+neither
+decimal
+</pre>
+        </td>
+      </tr>
+    </table>
+
+    <table class="sample" summary="sample data">
+      <tr>
+        <th>Sample Input 2</th>
+
+        <th>Sample Output 2</th>
+      </tr>
+
+      <tr>
+        <td>
+          <pre>
+10 20
+11111111111111111111
+11000000000000000101
+11111111111111110000
+11111111111111110000
+11000000000000000111
+00011111111111111111
+00111111111111111111
+10000000000000001111
+11111111111111111111
+11111111111111111111
+3
+2 3 8 16
+8 1 7 3
+1 1 10 20
+</pre>
+        </td>
+
+        <td>
+          <pre>
+binary
+decimal
+neither
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+                                                        </div>
+            </article>
+        </div>
+
+        <div id="editor-container" class="book-page-container grow static-fixed-parent" data-problem-name="10kindsofpeople"
+                                                                                        data-submit-url="/problems/10kindsofpeople/submit"
+                                                                                        data-sourcelim="131072"
+                                                                                        data-may-submit="true"
+                                                                                                                                                                                data-csrf-token="8959868709823386079627603595164222506267"
+                                                                                                                                                                                data-current-tab="edit-and-submit-tab"
+                                                                                        data-default-tab="edit-and-submit-tab">
+            <div class="tab static-fixed-content l-strip_list-flex">
+                    <div class="strip-item-plain problem-view-tab-nav-container"><nav class="tab-nav problem-view-tab-nav" data-mobile-select-classes="is-hidden@md tab-select-js" data-active-page="edit-and-submit-tab"><a id="edit-and-submit-tab-link" class="tab-nav-item tab-nav-js active" title="Edit &amp; Submit" data-tab-id-to-open="edit-and-submit-tab">Edit &amp; Submit</a><a id="metadata-tab-link" class="tab-nav-item tab-nav-js " title="Metadata" data-tab-id-to-open="metadata-tab">Metadata</a><a id="submissions-tab-link" class="tab-nav-item tab-nav-js " title="My Submissions" data-tab-id-to-open="submissions-tab">My Submissions</a></nav><div class="tabs-close book-close-tabs">Hide <i class="fas fa-chevron-right book-close-icon"></i></div></div>
+                    <div id="edit-and-submit-tab" class="overflow-y-auto grow " data-tabs-container="#editor-container">
+                                                    <div id="editor-container-editor" class="editor-container-content is-hidden">
+                                <div class="editor-top">
+                                    <div class="editor-top-header_items">
+                                        <div class="editor-top-pages editor-top-header_item">
+                                            <template id="editor-file_template">
+                                                <div class="editor-top-input">
+                                                    <div role="textbox" contenteditable="true" class="editor-top-input-field" data-pageId="-1"></div>
+                                                    <i class="fas fa-times editor-top-input-remove" contenteditable="false"></i>
+                                                </div>
+                                            </template>
+                                        </div>
+
+                                        <div class="editor-top-header-options editor-top-header_item">
+                                            <div class="editor-top-header-option">
+                                                <select id="editor_languages_list" name="editor_languages_list" class="select2 editor-select2">
+                                                    <option value=""></option>
+                                                    
+            <option data-defaultExtension="adb"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Ada"
+                >
+            Ada
+        </option>
+            <option data-defaultExtension="a68"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Algol 68"
+                >
+            Algol 68
+        </option>
+            <option data-defaultExtension="apl"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="APL"
+                >
+            APL
+        </option>
+            <option data-defaultExtension="sh"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Bash"
+                >
+            Bash
+        </option>
+            <option data-defaultExtension="c"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="C"
+                >
+            C
+        </option>
+            <option data-defaultExtension="cs"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="C#"
+                >
+            C#
+        </option>
+            <option data-defaultExtension="cpp"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="C++"
+                >
+            C++
+        </option>
+            <option data-defaultExtension="cob"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="COBOL"
+                >
+            COBOL
+        </option>
+            <option data-defaultExtension="lisp"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Common Lisp"
+                >
+            Common Lisp
+        </option>
+            <option data-defaultExtension="cr"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Crystal"
+                >
+            Crystal
+        </option>
+            <option data-defaultExtension="d"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="D"
+                >
+            D
+        </option>
+            <option data-defaultExtension="dart"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Dart"
+                >
+            Dart
+        </option>
+            <option data-defaultExtension="ex"
+                data-entryPointName="Mainclass"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Elixir"
+                >
+            Elixir
+        </option>
+            <option data-defaultExtension="erl"
+                data-entryPointName="Mainclass"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Erlang"
+                >
+            Erlang
+        </option>
+            <option data-defaultExtension="fs"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="F#"
+                >
+            F#
+        </option>
+            <option data-defaultExtension="fth"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Forth"
+                >
+            Forth
+        </option>
+            <option data-defaultExtension="f90"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Fortran"
+                >
+            Fortran
+        </option>
+            <option data-defaultExtension="go"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Go"
+                >
+            Go
+        </option>
+            <option data-defaultExtension="hs"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Haskell"
+                >
+            Haskell
+        </option>
+            <option data-defaultExtension="java"
+                data-entryPointName="Mainclass"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Java"
+                >
+            Java
+        </option>
+            <option data-defaultExtension="js"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="JavaScript (Node.js)"
+                >
+            JavaScript (Node.js)
+        </option>
+            <option data-defaultExtension="js"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="JavaScript (SpiderMonkey)"
+                >
+            JavaScript (SpiderMonkey)
+        </option>
+            <option data-defaultExtension="jl"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Julia"
+                >
+            Julia
+        </option>
+            <option data-defaultExtension="kt"
+                data-entryPointName="Mainclass"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Kotlin"
+                >
+            Kotlin
+        </option>
+            <option data-defaultExtension="lua"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Lua"
+                >
+            Lua
+        </option>
+            <option data-defaultExtension="mod"
+                data-entryPointName="Mainclass"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Modula-2"
+                >
+            Modula-2
+        </option>
+            <option data-defaultExtension="nim"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Nim"
+                >
+            Nim
+        </option>
+            <option data-defaultExtension="m"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Objective-C"
+                >
+            Objective-C
+        </option>
+            <option data-defaultExtension="ml"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="OCaml"
+                >
+            OCaml
+        </option>
+            <option data-defaultExtension="m"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Octave"
+                >
+            Octave
+        </option>
+            <option data-defaultExtension="odin"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Odin"
+                >
+            Odin
+        </option>
+            <option data-defaultExtension="pas"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Pascal"
+                >
+            Pascal
+        </option>
+            <option data-defaultExtension="pl"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Perl"
+                >
+            Perl
+        </option>
+            <option data-defaultExtension="php"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="PHP"
+                >
+            PHP
+        </option>
+            <option data-defaultExtension="pl"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Prolog"
+                >
+            Prolog
+        </option>
+            <option data-defaultExtension="py"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Python 3"
+                >
+            Python 3
+        </option>
+            <option data-defaultExtension="rkt"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Racket"
+                >
+            Racket
+        </option>
+            <option data-defaultExtension="rb"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Ruby"
+                >
+            Ruby
+        </option>
+            <option data-defaultExtension="rs"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Rust"
+                >
+            Rust
+        </option>
+            <option data-defaultExtension="sim"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Simula 67"
+                >
+            Simula 67
+        </option>
+            <option data-defaultExtension="st"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Smalltalk"
+                >
+            Smalltalk
+        </option>
+            <option data-defaultExtension="sno"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="SNOBOL"
+                >
+            SNOBOL
+        </option>
+            <option data-defaultExtension="swift"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Swift"
+                >
+            Swift
+        </option>
+            <option data-defaultExtension="ts"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="TypeScript"
+                >
+            TypeScript
+        </option>
+            <option data-defaultExtension="vb"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Visual Basic"
+                >
+            Visual Basic
+        </option>
+            <option data-defaultExtension="zig"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Zig"
+                >
+            Zig
+        </option>
+    
+                                                </select>
+                                            </div>
+                                            <div class="editor-top-header-option">
+                                                <button id="editor-add_page-button" class="editor-top-button">+ New</button>
+                                            </div>
+                                            <div class="editor-top-header-option">
+                                                <i class="fas fa-upload editor-top-icon editor-top-upload"><input type="file" class="editor-top-upload-input" multiple /></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="editor">//CODE GOES HERE</div>
+                                <div class="editor-bottom">
+                                    <div id="mainclass-container" class="mainclass-container-content">
+                                        <label for="mainclass" class="mainclass-label">Mainclass:</label>
+                                        <input type="text" id="mainclass" class="mainclass-field">
+                                    </div>
+                                    <button id="submit_code_button" class="button button-primary button-medium button-small ml-auto">Submit</button>
+                                </div>
+                                <div class="editor-drag_highlight is-hidden">
+                                    <i class="fas fa-upload editor-container-intro-icon"></i>
+                                    Upload file(s)                                </div>
+                            </div>
+
+                            <div id="editor-container-intro" class="editor-container-content">
+                                <div class="editor-container-intro-content">
+                                    <div class="editor-container-intro-half">
+                                        <div class="editor-container-intro-half-content">
+                                            <i class="fas fa-code editor-container-intro-icon"></i>
+                                            <p class="editor-container-intro-text">
+                                                Select your programming language of choice and start writing your code.                                            </p>
+                                            <div class="editor-container-intro-select">
+                                                <select id="intro_language_select" name="intro_languages_list" class="select2 intro-select2" data-placeholder="Choose language">
+                                                    <option value=""></option>
+                                                    
+            <option data-defaultExtension="adb"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Ada"
+                >
+            Ada
+        </option>
+            <option data-defaultExtension="a68"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Algol 68"
+                >
+            Algol 68
+        </option>
+            <option data-defaultExtension="apl"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="APL"
+                >
+            APL
+        </option>
+            <option data-defaultExtension="sh"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Bash"
+                >
+            Bash
+        </option>
+            <option data-defaultExtension="c"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="C"
+                >
+            C
+        </option>
+            <option data-defaultExtension="cs"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="C#"
+                >
+            C#
+        </option>
+            <option data-defaultExtension="cpp"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="C++"
+                selected>
+            C++
+        </option>
+            <option data-defaultExtension="cob"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="COBOL"
+                >
+            COBOL
+        </option>
+            <option data-defaultExtension="lisp"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Common Lisp"
+                >
+            Common Lisp
+        </option>
+            <option data-defaultExtension="cr"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Crystal"
+                >
+            Crystal
+        </option>
+            <option data-defaultExtension="d"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="D"
+                >
+            D
+        </option>
+            <option data-defaultExtension="dart"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Dart"
+                >
+            Dart
+        </option>
+            <option data-defaultExtension="ex"
+                data-entryPointName="Mainclass"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Elixir"
+                >
+            Elixir
+        </option>
+            <option data-defaultExtension="erl"
+                data-entryPointName="Mainclass"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Erlang"
+                >
+            Erlang
+        </option>
+            <option data-defaultExtension="fs"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="F#"
+                >
+            F#
+        </option>
+            <option data-defaultExtension="fth"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Forth"
+                >
+            Forth
+        </option>
+            <option data-defaultExtension="f90"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Fortran"
+                >
+            Fortran
+        </option>
+            <option data-defaultExtension="go"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Go"
+                >
+            Go
+        </option>
+            <option data-defaultExtension="hs"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Haskell"
+                >
+            Haskell
+        </option>
+            <option data-defaultExtension="java"
+                data-entryPointName="Mainclass"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Java"
+                >
+            Java
+        </option>
+            <option data-defaultExtension="js"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="JavaScript (Node.js)"
+                >
+            JavaScript (Node.js)
+        </option>
+            <option data-defaultExtension="js"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="JavaScript (SpiderMonkey)"
+                >
+            JavaScript (SpiderMonkey)
+        </option>
+            <option data-defaultExtension="jl"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Julia"
+                >
+            Julia
+        </option>
+            <option data-defaultExtension="kt"
+                data-entryPointName="Mainclass"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Kotlin"
+                >
+            Kotlin
+        </option>
+            <option data-defaultExtension="lua"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Lua"
+                >
+            Lua
+        </option>
+            <option data-defaultExtension="mod"
+                data-entryPointName="Mainclass"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Modula-2"
+                >
+            Modula-2
+        </option>
+            <option data-defaultExtension="nim"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Nim"
+                >
+            Nim
+        </option>
+            <option data-defaultExtension="m"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Objective-C"
+                >
+            Objective-C
+        </option>
+            <option data-defaultExtension="ml"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="OCaml"
+                >
+            OCaml
+        </option>
+            <option data-defaultExtension="m"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Octave"
+                >
+            Octave
+        </option>
+            <option data-defaultExtension="odin"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Odin"
+                >
+            Odin
+        </option>
+            <option data-defaultExtension="pas"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Pascal"
+                >
+            Pascal
+        </option>
+            <option data-defaultExtension="pl"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Perl"
+                >
+            Perl
+        </option>
+            <option data-defaultExtension="php"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="PHP"
+                >
+            PHP
+        </option>
+            <option data-defaultExtension="pl"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Prolog"
+                >
+            Prolog
+        </option>
+            <option data-defaultExtension="py"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Python 3"
+                >
+            Python 3
+        </option>
+            <option data-defaultExtension="rkt"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Racket"
+                >
+            Racket
+        </option>
+            <option data-defaultExtension="rb"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Ruby"
+                >
+            Ruby
+        </option>
+            <option data-defaultExtension="rs"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Rust"
+                >
+            Rust
+        </option>
+            <option data-defaultExtension="sim"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Simula 67"
+                >
+            Simula 67
+        </option>
+            <option data-defaultExtension="st"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Smalltalk"
+                >
+            Smalltalk
+        </option>
+            <option data-defaultExtension="sno"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="SNOBOL"
+                >
+            SNOBOL
+        </option>
+            <option data-defaultExtension="swift"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Swift"
+                >
+            Swift
+        </option>
+            <option data-defaultExtension="ts"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="TypeScript"
+                >
+            TypeScript
+        </option>
+            <option data-defaultExtension="vb"
+                data-entryPointName="None"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Visual Basic"
+                >
+            Visual Basic
+        </option>
+            <option data-defaultExtension="zig"
+                data-entryPointName="Mainfile"
+                data-defaultCode=""
+                data-defaultName="10kindsofpeople"
+                value="Zig"
+                >
+            Zig
+        </option>
+    
+                                                </select>
+                                            </div>
+                                            <button id="start_coding_button" class="button button-primary button-medium editor-container-intro-button">Start coding</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="editor-container-intro-half editor-container-intro-drop">
+                                        <div class="editor-container-intro-half-content">
+                                            <i class="fas fa-upload editor-container-intro-icon"></i>
+                                            <p class="editor-container-intro-text">
+                                                You can also upload your files by drag &amp; drop here or by browsing your computer.                                            </p>
+                                            <button id="upload_files_button" class="button button-primary button-medium upload_files_button editor-container-intro-button">
+                                                <input type="file" class="upload_files_button-input" multiple />
+                                                Upload files...                                            </button>
+                                        </div>
+                                        <div class="editor-drag_highlight is-hidden">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                            </div>
+                    <div id="metadata-tab" class="is-hidden scrollable-container" data-tabs-container="#editor-container" data-bookmark-label="Metadata">
+                                                                        <div class="overflow-y-auto metadata-grid-container">
+                            <div class="metadata-grid">
+                                <div class="card my-0 gap-3 metadata-cpu-card"><i class="fas fa-tachometer-alt text-3xl self-center" style="color: #ced5e4;"></i><div class="flex flex-col gap-2 self-center"><span class="info_label">CPU Time limit</span><span class="text-lg font-bold text-blue-200">1 second</span></div></div> <div class="card my-0 gap-3 metadata-memmory-card"><i class="fas fa-memory text-3xl self-center" style="color: #ced5e4;"></i><div class="flex flex-col gap-2 self-center"><span class="info_label">Memory limit</span><span class="text-lg font-bold text-blue-200">1024 MB</span></div></div> <div class="card my-0 gap-3 metadata-difficulty-card"><span class="self-center whitespace-nowrap difficulty_number difficulty_number-problem_view difficulty_medium">4.9</span><div class="flex flex-col gap-2 self-center"><span class="info_label">Difficulty</span><span class="text-lg font-bold text-blue-200">Medium</span></div></div>
+                                <div class="card my-0 metadata-links-card"><div class="flex flex-col gap-3"><span class="info_label">Links</span><a href="/problems/10kindsofpeople/statistics" class="flex gap-3"><i class="fas fa-chart-column text-blue-100 self-center"></i>Statistics</a></div></div>     <div class="card my-0 metadata-downloads-card"><div class="flex flex-col gap-3"><span class="info_label">Downloads</span><a href="/problems/10kindsofpeople/file/statement/samples.zip" class="flex gap-3" download="10kindsofpeople.zip"}><i class="fas fa-file-arrow-down text-blue-100 self-center"></i>Sample data files</a></div></div>    <div class="card my-0 metadata-license-card"><div class="flex flex-col gap-3"><span class="info_label">Source &amp; License</span><span class="flex flex-wrap gap-3"><i class="fas fa-feather-pointed text-gray-200 self-center" title="Author"></i><a href="/problem-authors/David%20Sturgill">David Sturgill</a></span><span class="flex gap-3"><a href="/problem-sources/Baylor%20Competitive%20Learning%20course">Baylor Competitive Learning course</a></span><span class="flex gap-3"><a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/" style="vertical-align: middle;"><img class="problem-license" alt="Creative Commons License (cc by-sa)" src="https://licensebuttons.net/l/by-sa/3.0/80x15.png" /></a></span></div></div>
+                            </div>
+                        </div>
+                    </div>
+                                            <div id="submissions-tab" class="book-page static-fixed-content-no-expand is-hidden" data-tabs-container="#editor-container" data-bookmark-label="Submissions">
+                            <p align="center">
+                                You haven&#039;t made any submissions on this problem yet.                            </P>
+                        </div>
+                                                            
+            </div>
+        </div>
+        <div id="bookmark-editor" class="book-bookmark is-hidden">
+            <div class="book-bookmark-text" data-cy="editor-bookmark">
+                Editor: <span id="editor-bookmark-label" class="book-bookmark-text-subtext" data-intro-text="Intro"></span><i class="fas fa-chevron-right book-bookmark-text-icon"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </main>
+
+    
+
+
+
+    <footer class="l-footer ">
+        <span class="text-center text-sm">
+        <a href="/info/contact">Contact</a> |
+        <a href="https://status.kattis.com">System Status</a> |
+        <a rel="terms-of-service" href="/info/tos">Terms of Service</a> |
+        <a rel="privacy-policy" href="https://www.kattis.com/policies/privacy_policy.pdf">Privacy Policy</a>
+        </span>
+    </footer>
+
+</div>
+
+
+
+<script nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" src="/assets/45ee1c6d5829549ca51118259436e200/moment/min/moment.min.js"></script>
+<script nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" src="/assets/45ee1c6d5829549ca51118259436e200/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" src="/assets/45ee1c6d5829549ca51118259436e200/select2/dist/js/select2.full.min.js"></script>
+
+
+
+        <script defer nonce="b83cfe555fc543dae59280925b506d177e5c54964157d6388710426b5d9ce3c4" src="https://status.kattis.com/embed/script.js"></script>
+</body>
+</html>
